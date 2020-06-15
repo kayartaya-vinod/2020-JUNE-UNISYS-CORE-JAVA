@@ -1,5 +1,6 @@
 package com.unisys.entity;
 
+@SuppressWarnings("unused")
 public class Customer {
 	private int id;	// only methods in this class can access using a reference
 	String name;	// methods in this class and any other classes in the same package can access

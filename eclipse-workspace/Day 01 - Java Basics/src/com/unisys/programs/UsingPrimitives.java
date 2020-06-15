@@ -12,6 +12,7 @@ public class UsingPrimitives {
 	Connection conn;
 	FileReader fr;
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		// f is a primitive

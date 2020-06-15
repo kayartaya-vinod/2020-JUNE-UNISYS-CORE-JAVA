@@ -7,6 +7,7 @@ import com.unisys.apps.SayHello;
 
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		Connection conn;

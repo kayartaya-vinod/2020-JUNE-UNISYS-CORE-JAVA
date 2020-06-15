@@ -18,6 +18,7 @@ public class CreateEmployee {
 		
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main_old(String[] args) {
 		
 		

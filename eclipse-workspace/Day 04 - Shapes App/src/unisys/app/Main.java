@@ -7,6 +7,7 @@ import com.unisys.service.ShapeService;
 
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Shape shape;
 		// ShapeDao dao;

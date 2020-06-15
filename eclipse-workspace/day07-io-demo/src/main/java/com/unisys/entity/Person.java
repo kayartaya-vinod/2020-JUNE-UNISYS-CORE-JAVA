@@ -1,29 +1,18 @@
 package com.unisys.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 import com.unisys.utils.DateUtil;
 
-public class Person  implements Comparable<Person> {
+public class Person  implements Comparable<Person>, Serializable {
 
-	// this provides a natural ordering for two person objects
-	@Override
-	public int compareTo(Person other) {
-
-		int ret = this.name.compareTo(other.name);
-		if (ret == 0) {
-			ret = this.dob.compareTo(other.dob);
-		}
-		return ret;
-	}
-
-	static {
-		System.out.println("Person class loaded to VM!");
-	}
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private Date dob;
+	private transient Address address;
 
 	public Person() {
 	}
@@ -58,6 +47,14 @@ public class Person  implements Comparable<Person> {
 		this.dob = DateUtil.toDate(dob);
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+	
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(dob, name);
@@ -77,7 +74,27 @@ public class Person  implements Comparable<Person> {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", dob=" + DateUtil.toString(dob) + "]";
+		return "Person [name=" + name + ", dob=" + DateUtil.toString(dob) + ", address=" + address + "]";
 	}
 
+	// this provides a natural ordering for two person objects
+	@Override
+	public int compareTo(Person other) {
+
+		int ret = this.name.compareTo(other.name);
+		if (ret == 0) {
+			ret = this.dob.compareTo(other.dob);
+		}
+		return ret;
+	}
+
+	static {
+		//System.out.println("Person class loaded to VM!");
+	}
+
+	public void print() {
+		System.out.println("Name = " + name);
+		System.out.println("DOB  = " + DateUtil.toString(dob));
+	}
+	
 }
