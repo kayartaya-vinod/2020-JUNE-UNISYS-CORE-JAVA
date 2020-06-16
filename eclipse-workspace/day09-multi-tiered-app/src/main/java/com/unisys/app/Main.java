@@ -16,12 +16,34 @@ public class Main {
 
 			switch (choice) {
 			case 1:
+				acceptAndAddContactDetails();
+				break;
 			case 2:
 				printAllContacts();
+				break;
 			}
 		}
 		
 		System.out.println("Thank you!");
+	}
+
+	private void acceptAndAddContactDetails() {
+		try {
+			System.out.println("Enter the details for adding a new contact:");
+			String firstname = KeyboardUtil.getString("Firstname: ");
+			String lastname = KeyboardUtil.getString("lastname: ");
+			String email = KeyboardUtil.getString("email: ");
+			String phone = KeyboardUtil.getString("phone: ");
+			String city = KeyboardUtil.getString("city: ");
+			
+			ContactsService service = new ContactsService();
+			service.addNewContact(firstname, lastname, email, phone, city);
+			System.out.println("New contact added successfully!");
+			
+		} catch (Exception e) {
+			System.out.println("There was an error!");
+			System.out.println(e.getMessage()); // root cause
+		}
 	}
 
 	private void printAllContacts() {
