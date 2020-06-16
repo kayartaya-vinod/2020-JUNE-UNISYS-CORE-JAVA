@@ -69,6 +69,7 @@ public class MoreDemoOnLambda {
 		// people.stream().map(p->p.getName()).forEach(name->System.out.println(name));
 		people.stream().map(p->p.getName()).forEach(System.out::println);
 		// forEach --> a lambda function --> System.out.println
+		// forEach --> System.out::println
 	}
 	
 	
