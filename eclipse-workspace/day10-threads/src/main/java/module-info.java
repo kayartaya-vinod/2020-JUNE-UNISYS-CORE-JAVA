@@ -1,0 +1,2 @@
+module demo.threads {
+}
